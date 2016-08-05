@@ -13,7 +13,12 @@ void poseCallback(const std_msgs::String& msg){
   tf::Quaternion q;
   q.setRPY(0, 0, 0);
   transform.setRotation(q);
-  br.sendTransform(tf::StampedTransform(transform, ros::Time::now(), "world", car));
+  br.sendTransform(tf::StampedTransform(transform, ros::Time::now(), "world", "drived_car/body_link"));
+
+  transform.setOrigin( tf::Vector3(0.0, 8.0 , 0.0) );
+  q.setRPY(0, 0, 0);
+  transform.setRotation(q);
+  br.sendTransform(tf::StampedTransform(transform, ros::Time::now(), "world", "parked_car/body_link"));
 }
 
 int main(int argc, char** argv){
