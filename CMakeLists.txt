@@ -7,7 +7,7 @@ project(parking_management)
 find_package(catkin REQUIRED roscpp std_msgs tf)
 
 ## System dependencies are found with CMake's conventions
-# find_package(Boost REQUIRED COMPONENTS system)
+find_package(Eigen3 REQUIRED)
 
 
 ## Uncomment this if the package has a setup.py. This macro ensures
@@ -61,7 +61,7 @@ catkin_package(
 
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
-# include_directories(include)
+include_directories(${eigen_INCLUDE_DIRS} /usr/include/eigen3)
 
 ## Declare a cpp library
 # add_library(object

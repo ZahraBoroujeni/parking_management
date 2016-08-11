@@ -19,10 +19,13 @@
 	<node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
 	
 	</group>
+<param name="map_file" value="$(find parking_management)/maps/map.txt"/>
+<param name="max_id" value="15"/>
 
 	<node pkg="parking_management" type="car_position_publisher" name="car_position_publisher" output="screen" />
          <node name="map_server" pkg="map_server" type="map_server" args="$(find parking_management)/maps/parking_place.yaml" output="screen">
 		<param name="frame_id" value="/world"/>
+
 	</node>
 	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find parking_management)/urdf.rviz" />
 	
